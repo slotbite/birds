@@ -4539,7 +4539,7 @@ let birds = [
   }
 ];
 
-const grid = document.querySelector(".grid-container");
+let grid = document.querySelector(".grid-container");
 
 function playSound(audioElement) {
   audioElement.play();
