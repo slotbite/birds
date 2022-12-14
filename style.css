@@ -20,7 +20,6 @@
   }
 } */
 body {
-  /*   background-color: transparent; */
   background-color: white;
   color: black;
   transition: background-color 3s;
@@ -47,10 +46,6 @@ body {
   color: white;
 }
 
-/* 
-body.transparent {
-   color: white;
-} */
 h1,
 h5 {
   text-align: center;
