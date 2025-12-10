@@ -22,11 +22,13 @@ export const useBirdAudio = (bird) => {
 
         setIsLoading(true);
 
-        // Use proxy to avoid CORS issues
-        // Convert https://aves.ninjas.cl/api/birds/... to /api/birds/...
-        const proxyUrl = bird._links.self.replace('https://aves.ninjas.cl', '');
+        // In development, use proxy to avoid CORS. In production, request directly.
+        // Note: This assumes the API supports CORS for the production domain.
+        const fetchUrl = import.meta.env.DEV
+            ? bird._links.self.replace('https://aves.ninjas.cl', '')
+            : bird._links.self;
 
-        fetch(proxyUrl)
+        fetch(fetchUrl)
             .then(response => response.json())
             .then(data => {
                 // Log complete data for inspection
