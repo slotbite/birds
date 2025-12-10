@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+
+  --color-nature-50: #f2f8f3;
+  --color-nature-100: #e1f0e4;
+  --color-nature-200: #c5e2cb;
+  --color-nature-300: #9ccaad;
+  --color-nature-400: #6ea886;
+  --color-nature-500: #4d8a67;
+  --color-nature-600: #3a6e51;
+  --color-nature-700: #305842;
+  --color-nature-800: #284636;
+  --color-nature-900: #213a2d;
+}
+
+html,
+body {
+  @apply h-full w-full bg-black text-white antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme('colors.nature.900');
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.nature.600');
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.nature.500');
+}
+
+/* Custom Bird Markers */
+.custom-bird-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.custom-bird-marker img {
+  pointer-events: none;
+}
+
+/* Hide scrollbar for specific elements */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* User Location Marker */
+.user-location-marker {
+  background: transparent !important;
+  border: none !important;
+  animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-blue {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}

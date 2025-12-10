@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Móvil - Mapa de Avistamientos Personales</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec6d",
+              "background-light": "#f6f8f7",
+              "background-dark": "#102218",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-screen w-full flex-row overflow-hidden">
+<!-- SideNavBar -->
+<aside class="flex h-full w-64 flex-col bg-white dark:bg-black p-4 shadow-lg z-20">
+<div class="flex flex-col gap-8">
+<div class="flex items-center gap-3 px-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Logotipo de Aves de Chile" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBM7pkR27StVjcs4grEjlO78pd7c8tgoMk9ykg58WIM8CZlh-dQ8as82JupY3TiSf2hon1a06h5Q2vkQfppdD5yN0e8u4hDe1dPmOfSoLRZFWLSY8haBJnepBbYhcq2DWFpZXxhFthNLLwl5GLlD0TRUbVnDNKH1U3KFgXot2IlR727tSPOK5-SwgoUM2QJPbClddzIQL_mLC0DUKuVZcHo8hRb1XOSmx25aAH9UFIEVx49rWXzoMTxwYoh2q9I9sMv-Qu8AoXTjoWM");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#111814] dark:text-white text-base font-bold leading-normal">Aves de Chile</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Guía Relajante</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" href="#">
+<span class="material-symbols-outlined">search</span>
+<p class="text-sm font-medium leading-normal">Buscar</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full bg-primary/20 text-gray-900 dark:text-white" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">map</span>
+<p class="text-sm font-bold leading-normal">Mapa</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" href="#">
+<span class="material-symbols-outlined">book</span>
+<p class="text-sm font-medium leading-normal">Bitácora</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-sm font-medium leading-normal">Perfil</p>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="relative flex-1">
+<!-- Map -->
+<div class="absolute inset-0 h-full w-full">
+<div class="bg-cover bg-center flex h-full w-full flex-col justify-between" data-alt="Mapa satelital de una zona costera con montañas" data-location="Chile" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAk1WgQ3cQLjoycbjtnpX7Lhq9ujBtti8R8ViMHYMgMsYNnIxopyrjDJLM2TQ_G3z2qqeq6pzkl5IXlxtQ0l9W-qlPevV08YriUZcs2jyxNaLxFv2i8x3KYZfawV9oZmVdOs-Q-10pXW1auCXrzzEIeqgEZ3momroieXFQ5aCFcUk_f1mII4kQysJHSp1Gb25cjEZ593KIlsOeK455MdjRDL6AENyYhK82PZnkbBbr2rpQvlRhD1qWhZLoRFkRz19rW7orElSlA0Vpd");'>
+<!-- Search Bar and Map Controls -->
+<div class="flex items-start justify-between p-6">
+<label class="flex flex-col min-w-40 h-12 w-full max-w-md shadow-lg">
+<div class="flex w-full flex-1 items-stretch rounded-full h-full">
+<div class="text-gray-500 flex bg-white dark:bg-gray-800 dark:text-gray-300 items-center justify-center pl-4 rounded-l-full border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-full text-gray-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-white dark:bg-gray-800 h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 pl-2 text-base font-normal leading-normal" placeholder="Buscar ubicaciones o especies de aves" value=""/>
+</div>
+</label>
+<div class="flex flex-col items-end gap-3">
+<div class="flex flex-col gap-0.5 shadow-lg rounded-full">
+<button class="flex size-10 items-center justify-center rounded-t-full bg-white dark:bg-gray-800 dark:text-white">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-b-full bg-white dark:bg-gray-800 dark:text-white">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<button class="flex size-10 items-center justify-center rounded-full bg-white dark:bg-gray-800 dark:text-white shadow-lg">
+<span class="material-symbols-outlined">navigation</span>
+</button>
+</div>
+</div>
+<!-- Pop-up/Tooltip -->
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[calc(100%+16px)] w-64">
+<div class="flex flex-col bg-white dark:bg-background-dark rounded-lg shadow-2xl overflow-hidden">
+<div class="h-32 bg-cover bg-center" data-alt="Fotografía de un Picaflor Chico en vuelo cerca de una flor roja." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDg5qRsbL-n-KumSwrI_lRnBZ7cWCZr_qpvgQIwwTh7UkmxUS9fcp-hhHsE_Zqi2uXLTyY5m0FYKkQcmWX6Jt8r0Xtjps7nZ1tnMCA0_gSP8MX-eQ0Ed37LwhdbWP0R5C_92lhWLZzulBEHS-aTrVP_TKzv080TorlYFp1kvESIG07N8bGjC3sX2eeHTpIisE3RiNrRY2LHPVo7u-sj5WD3YO0WSgTff32vaE4FUVWDxgyCjGud-gMGi4FwkaXmI6SpP54ilVhUuY5A')"></div>
+<div class="p-4">
+<h3 class="font-bold text-gray-900 dark:text-white">Picaflor Chico</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">15 de Octubre, 2023</p>
+<a class="text-primary font-semibold text-sm mt-2 inline-block hover:underline" href="#">Ver Detalles</a>
+</div>
+</div>
+<div class="w-4 h-4 bg-white dark:bg-background-dark transform rotate-45 -mt-2 mx-auto"></div>
+</div>
+<!-- Sighting Marker -->
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer group">
+<div class="w-12 h-12 bg-gray-300 dark:bg-gray-600 rounded-full border-4 border-white dark:border-gray-900 shadow-xl flex items-center justify-center transition-transform group-hover:scale-110">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-full h-full" data-alt="Primer plano de un Picaflor Chico" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAB7U-EfEzrCqazjK1z0IrtWIj0FCFGF-L14KGVaIFmn3pC7Xr8TRmliU5bl4LkGZxsIMhDefpaIveQ9kkAkZ4LzTvNGMtBN6VNJJBFm_B_AdSMNGIN1GafOS2tXYLeIgWbzhFEJxz1_TBRrdtS5HM1dkfdvlo1uIpLDtFBAAGlPTumsRF3YE5t-F5cqgp3EXvZ7lIo5E3nsfEbENS1s8WzyxVWP2NhiconbjnsnSOmrQlZn2YCdKu7JHFOaxRlJToB1vdYajADQdQD");'></div>
+</div>
+</div>
+<!-- Sighting Marker (No photo) -->
+<div class="absolute left-1/3 top-1/3 -translate-x-1/2 -translate-y-1/2 cursor-pointer group">
+<div class="w-12 h-12 bg-gray-300 dark:bg-gray-600 rounded-full border-4 border-white dark:border-gray-900 shadow-xl flex items-center justify-center transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300">egg</span>
+</div>
+</div>
+</div>
+</div>
+<!-- FAB -->
+<div class="absolute bottom-6 right-6 z-10">
+<button class="flex w-16 h-16 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-primary text-gray-900 shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'wght' 500;">add</span>
+</button>
+</div>
+</main>
+</div>
+</body></html>

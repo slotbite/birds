@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aves de Chile – Guía Relajante</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec6d",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102218",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111814] dark:text-background-light">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- TopNavBar -->
+<header class="absolute top-0 left-0 right-0 z-10 flex items-center justify-between whitespace-nowrap p-6 sm:p-8 lg:p-10 font-display">
+<div class="flex items-center gap-3 text-white">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">Aves de Chile – Guía Relajante</h2>
+</div>
+</header>
+<main class="flex h-full grow flex-col">
+<!-- HeroSection -->
+<div class="relative flex min-h-[480px] flex-col items-center justify-center gap-8 bg-cover bg-center bg-no-repeat p-4 text-center md:min-h-[520px] lg:min-h-[600px]" data-alt="A soft-focus, serene landscape of the Chilean Patagonia with mountains and a lake." style='background-image: linear-gradient(rgba(16, 34, 24, 0.5) 0%, rgba(16, 34, 24, 0.8) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDdaCPrhmTt-oGymgeyhNPBFOc_wfcm8MDq99RQNMYB1KdRuUkpj2wIGhKRUm0WqgnFKTks_Ntt5zyh56DfYnmmo64ab9irVsjKr2hWqThvZgeZ4IqIEWecc56Us6ek9EWUSdnHWZHohKcsFwLz8Lgz1NsMYKOv1MXWCycspGe3kMLzJINwweUHtYqUpFNd0ooh21SiYCxm85uGLAO-Pa6Tbm2-vswkKRn-4347CBLMm_fO85ZWq1DI3s_8gCjg-P9RZurbJw_Y0J1L");'>
+<div class="flex flex-col gap-2">
+<h1 class="font-display text-4xl font-black leading-tight tracking-[-0.033em] text-white sm:text-5xl">Encuentra la calma en la naturaleza</h1>
+<h2 class="font-display text-base font-normal leading-normal text-white/90 sm:text-lg">Descubre la belleza de las aves chilenas</h2>
+</div>
+<label class="flex w-full max-w-[560px] flex-col">
+<div class="group flex h-14 w-full flex-1 items-stretch rounded-full border border-transparent bg-white/[0.15] shadow-lg transition-all focus-within:border-primary/80 focus-within:bg-white/[0.2] dark:bg-background-dark/30 dark:focus-within:bg-background-dark/50">
+<div class="flex items-center justify-center pl-5 text-primary">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input h-full w-full min-w-0 flex-1 resize-none overflow-hidden border-0 bg-transparent px-4 text-base font-normal leading-normal text-white placeholder:text-white/70 focus:outline-none focus:ring-0" placeholder="Busca por nombre común, científico o zona…" value=""/>
+</div>
+</label>
+</div>
+<!-- Content Section: Grid or Empty State -->
+<div class="mx-auto w-full max-w-6xl flex-1 px-4 py-10 sm:px-6 lg:px-8">
+<!-- ImageGrid (Results appear here) -->
+<div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6">
+<div class="group flex cursor-pointer flex-col gap-3">
+<div class="relative w-full overflow-hidden rounded-lg bg-center bg-no-repeat aspect-[4/3] bg-cover shadow-sm transition-transform duration-300 ease-in-out group-hover:scale-105" data-alt="A vibrant red-breasted bird, the Loica, perched on a thin branch." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDqJL7rv6clZinl7hYqvkZJEDHTcm0a9XCYVrW5JpBeQF2ZDP2n-YbSeBoaZfjgL2diZCwgyoRX4yQ--B6o94TSEdfP6AX_Hg0tWQfdZ8zMfTQgFKGCyQOXV1guluifI1pv2h4mhmoPxs3Pb823A1Sa_IypHG1Two-kW_KXU4PTwmkRe2OaPBFepKEq6HUifCQ3bvFOyqIAI9__7jE9Z7XGKGtI0z0UeksS9f4-CBZIrz0PZyXNxEDJrsEZ0cIAvuAoKwF6kdHW9j3x");'>
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<p class="font-display text-base font-bold leading-normal text-[#111814] dark:text-background-light">Loica</p>
+<p class="font-display text-sm font-normal italic leading-normal text-gray-500 dark:text-gray-400">Sturnella loyca</p>
+</div>
+<div class="rounded-full bg-primary/20 p-2 text-primary" title="Pradera">
+<span class="material-symbols-outlined !text-xl">grass</span>
+</div>
+</div>
+</div>
+<div class="group flex cursor-pointer flex-col gap-3">
+<div class="relative w-full overflow-hidden rounded-lg bg-center bg-no-repeat aspect-[4/3] bg-cover shadow-sm transition-transform duration-300 ease-in-out group-hover:scale-105" data-alt="A small, colorful bird, the Chucao, standing amongst forest undergrowth." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB1QZvI8Xm72j5NXwi6gPtApLmpr8v5qqgqf1qpMsIaZkJ11fR_9vCp1rRCzPRURKfKQpMWyeyYI7HiVWX_0XpdSD6-HsSbpkielIODbA85ae8mApQpOSE1I6_iaTafnRSmIqb65CyXgGOCH2LrIeRWvm4-WYUkvNleFNoq2agUMPlnWsy5GJ03EQ4sOZ5vVSJ-UGwhn6Z-0gEux24fjvu5f6khDSOtprB0w-nQQ14at5Z9zArPBoFZ6O4cnnKAo_QrrSCq4AKeAkjj");'>
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<p class="font-display text-base font-bold leading-normal text-[#111814] dark:text-background-light">Chucao</p>
+<p class="font-display text-sm font-normal italic leading-normal text-gray-500 dark:text-gray-400">Scelorchilus rubecula</p>
+</div>
+<div class="rounded-full bg-primary/20 p-2 text-primary" title="Bosque">
+<span class="material-symbols-outlined !text-xl">park</span>
+</div>
+</div>
+</div>
+<div class="group flex cursor-pointer flex-col gap-3">
+<div class="relative w-full overflow-hidden rounded-lg bg-center bg-no-repeat aspect-[4/3] bg-cover shadow-sm transition-transform duration-300 ease-in-out group-hover:scale-105" data-alt="A large kingfisher, Martín Pescador, with a prominent crest, perched above water." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAki91j0OfjdM8xVlCat0Q-csSNIWBELbMCYSBFnuOPJXb9Zv91Eh8QkgSpq8Ij7tJ6Ye4qNvbkbxAq_2M6Gm1jura1sq4SYEkDmCbrZslM5v6hZQ2m3DqNLK8eXuxnJcdzkoaB00F5hPJM7C5ap3U1K6XXJfY-k_A-Kc3ZdkPbmrPniM95vyRa30uOohFz7STzvNeYnhIZT-3ADVWz9kv2bZ-Rdlvh2kkdV-B12KNWCUPAxY9DNuvKvudXJN3REp24MhHgVsU3ROgU");'>
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<p class="font-display text-base font-bold leading-normal text-[#111814] dark:text-background-light">Martín Pescador</p>
+<p class="font-display text-sm font-normal italic leading-normal text-gray-500 dark:text-gray-400">Megaceryle torquata</p>
+</div>
+<div class="rounded-full bg-primary/20 p-2 text-primary" title="Costa/Río">
+<span class="material-symbols-outlined !text-xl">water</span>
+</div>
+</div>
+</div>
+<div class="group flex cursor-pointer flex-col gap-3">
+<div class="relative w-full overflow-hidden rounded-lg bg-center bg-no-repeat aspect-[4/3] bg-cover shadow-sm transition-transform duration-300 ease-in-out group-hover:scale-105" data-alt="A majestic Andean Condor soaring against a mountain backdrop." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBNJTTZazE_qIjzhFnzafn2wZpeWw4-obPKPWe5ZffTYP-MzGFtHOJUcBS927lEHDjjueb1CabaXoAw-BplN7v88HEWv4L0Gq8tEAQadbOnNF_1mg4tRSDPyRA6iBfdzgCEEZ3NvknLPWULNsh4Y3ZKKP4FIL1aKWUYVNduD4fMQCi7AhIkUGT5yi5SqaKuLRKL9AJvBGXQRRZfvNNd_RHovVALffUJHGhuobsa8pM_tEoHVpKJV_obpjPeC0wFCcWlV3BzDXeO6bFu");'>
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<p class="font-display text-base font-bold leading-normal text-[#111814] dark:text-background-light">Cóndor Andino</p>
+<p class="font-display text-sm font-normal italic leading-normal text-gray-500 dark:text-gray-400">Vultur gryphus</p>
+</div>
+<div class="rounded-full bg-primary/20 p-2 text-primary" title="Montaña">
+<span class="material-symbols-outlined !text-xl">filter_hdr</span>
+</div>
+</div>
+</div>
+</div>
+<!-- EmptyState (Example for no results) -->
+<!-- 
+                <div class="flex flex-col items-center gap-6 px-4 py-16 text-center">
+                    <div class="text-primary">
+                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-24 h-24 opacity-30">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                       </svg>
+                    </div>
+                    <div class="flex max-w-md flex-col items-center gap-2">
+                        <p class="font-display text-xl font-bold leading-tight tracking-[-0.015em] text-[#111814] dark:text-background-light">No encontramos aves</p>
+                        <p class="font-display text-base font-normal leading-normal text-gray-600 dark:text-gray-400">No encontramos aves con ese nombre. ¡Intenta con otro!</p>
+                    </div>
+                </div>
+                -->
+</div>
+</main>
+</div>
+</body></html>

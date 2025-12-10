@@ -1,0 +1,28 @@
+# Aves de Chile – Guía Relajante - Task List
+
+- [ ] **Project Setup & Planning** <!-- id: 0 -->
+    - [ ] Create Implementation Plan <!-- id: 1 -->
+    - [/] Initialize Project Structure (React + Vite) <!-- id: 2 -->
+    - [ ] Move legacy files to `_legacy` <!-- id: 3 -->
+    - [ ] Install dependencies (Tailwind, Zustand, Framer Motion, etc.) <!-- id: 4 -->
+- [ ] **Core Architecture & UI Foundation** <!-- id: 5 -->
+    - [ ] Configure Tailwind CSS (Colors, Fonts, Design Tokens) <!-- id: 6 -->
+    - [ ] Setup Global State (Zustand) <!-- id: 7 -->
+    - [ ] Setup Routing (React Router) <!-- id: 8 -->
+    - [ ] Create Base Layout & Navigation <!-- id: 9 -->
+- [ ] **Feature: Home & Search** <!-- id: 10 -->
+    - [ ] Implement Hero & Search Component (Fuse.js) <!-- id: 11 -->
+    - [ ] Implement Bird Grid & Cards <!-- id: 12 -->
+    - [ ] Implement Audio Player Logic (Howler.js) <!-- id: 13 -->
+- [ ] **Feature: Bird Details** <!-- id: 14 -->
+    - [ ] Implement Binocular View (Visual Effect) <!-- id: 15 -->
+    - [ ] Implement Detail Information Sections <!-- id: 16 -->
+    - [ ] Implement "Add to Logbook" Button <!-- id: 17 -->
+- [ ] **Feature: Logbook & Map** <!-- id: 18 -->
+    - [ ] Setup PouchDB for local storage <!-- id: 19 -->
+    - [ ] Implement Leaflet Map Integration <!-- id: 20 -->
+    - [ ] Implement Sighting Form/Modal <!-- id: 21 -->
+- [ ] **Polishing & Deployment** <!-- id: 22 -->
+    - [ ] Add Framer Motion Animations <!-- id: 23 -->
+    - [ ] Configure PWA (Manifest, Service Worker) <!-- id: 24 -->
+    - [ ] Final Review & cleanup <!-- id: 25 -->

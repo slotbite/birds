@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Web - Detalle de Ave, variante artística</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&amp;family=Dancing+Script:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec6d","background-light": "#f6f8f7",
+              "background-dark": "#102218",
+              "moss-green": "#4a6d4a","beige-light": "#f5f5dc","silver-grey": "#c0c0c0",},
+            fontFamily: {
+              "common-name": ["Quicksand", "sans-serif"],"scientific-name": ["Dancing Script", "cursive"],"display": ["Quicksand", "sans-serif"]},
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style type="text/tailwindcss">
+      :root {
+        --moss-green: #4a6d4a;
+        --silver-grey: #c0c0c0;
+      }
+      .sound-wave > div {
+        height: 100%;
+        background-color: var(--moss-green);border-radius: 9999px;
+        width: 3px;
+        animation: sound 1.2s ease-in-out infinite;
+      }
+      .sound-wave > div:nth-child(2) { animation-delay: 0.2s; }
+      .sound-wave > div:nth-child(3) { animation-delay: 0.4s; }
+      .sound-wave > div:nth-child(4) { animation-delay: 0.6s; }
+      .sound-wave > div:nth-child(5) { animation-delay: 0.8s; }
+      @keyframes sound {
+        0%, 100% { transform: scaleY(0.1); }
+        50% { transform: scaleY(1); }
+      }.binocular-circle {
+        position: absolute;
+        width: 60vh;height: 60vh;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--silver-grey);
+        box-shadow: inset 0 0 0 1px var(--silver-grey);background-image: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,1) 100%);
+      }
+      .binocular-circle.left {
+        left: 50%;
+        transform: translateX(-55%) translateY(-50%);top: 50%;
+      }
+      .binocular-circle.right {
+        left: 50%;
+        transform: translateX(-45%) translateY(-50%);top: 50%;
+      }
+      .binocular-image {
+        width: 120%;height: 120%;
+        background-size: cover;
+        background-position: center;
+        filter: saturate(0.8) contrast(1.1);}.outer-vignette {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.8) 100%);
+        pointer-events: none;
+        z-index: 15;}
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark overflow-hidden">
+<div class="relative flex h-screen w-full flex-col group/design-root">
+<div class="absolute inset-0 z-0 bg-black"></div>
+<div class="absolute inset-0 z-10 flex cursor-pointer items-center justify-center transition-transform duration-500 group-focus-within/design-root:scale-[2] group-focus-within/design-root:translate-y-[-15%]">
+<div class="binocular-circle left">
+<div class="binocular-image" data-alt="A soft, painterly red-breasted bird illustration perched on a branch in a natural, serene environment." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_704oApAVgc0vsCxi23_UYvv-j8Yt0LUQSu2k18rRWF5fFSm8nhu8iU2Je3VSXw-mT80_e1FBy9I6OTlY_BW3i_OaWFGHjqp-mK8Z0pzHE_JCXY3youvytAK_o3NwL6P50koGMmVl9BF72D-yO5dQm6xh58e_biYkUyMc-99my2_FQshqZeoL1tFagEFZ8ERl-JgfZ4SsPZHFPW7j0Wl2rzvfzCBl9dv3F4w0RuRJtQPAZXWniU9mlJXe6zP_yQC6ti5Hujmb4fc_");'></div>
+</div>
+<div class="binocular-circle right">
+<div class="binocular-image" data-alt="A soft, painterly red-breasted bird illustration perched on a branch in a natural, serene environment." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCv4sgSKoqESHt9YGuuTWooCax0y3jpZYxKoe4UfQdHrAYYRKiWjLokrI9_lA94Lm9xribHOR9jy3YqkUOLatgEBnv3BZKBujohmb2KxewlPNarJVjY-4zYk7VF8c2Ty3hlZDxyK1jbiOj-cu2NSFngwhMlXWtQ_Hi3KMMVpigq5M10OynYxWA1dO-QuwQW0aELcSoNOB_IViZ2BM9xPZ_Q2NYv7W6eUeIdYS6JopwXafDsebeMkyD7f6CArVmrM-xuMujQgIuOeuTg");'></div>
+</div>
+</div>
+<div class="outer-vignette group-focus-within/design-root:opacity-0 transition-opacity duration-500"></div>
+<div class="relative z-30 flex h-full grow flex-col">
+<header class="flex w-full items-start justify-between p-6 text-white transition-opacity duration-500 group-focus-within/design-root:opacity-0 group-focus-within/design-root:pointer-events-none">
+<button class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-black/30 backdrop-blur-sm transition-colors hover:bg-black/50">
+<span class="material-symbols-outlined text-white">arrow_back</span>
+</button>
+<div class="flex flex-col items-end gap-1">
+<h1 class="text-6xl font-common-name text-beige-light leading-tight font-medium" style="text-shadow: 0 2px 8px rgba(0,0,0,0.7);">Loica</h1>
+<p class="text-3xl font-scientific-name text-white/70">Leistes loyca</p>
+</div>
+<div class="h-12 w-12"></div>
+</header>
+<main class="flex flex-1 items-end p-6 md:p-10">
+<div class="w-full transition-opacity duration-500 group-focus-within/design-root:opacity-0 group-focus-within/design-root:pointer-events-none">
+<div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+<div class="flex flex-col rounded-lg bg-white/10 p-4 backdrop-blur-md dark:bg-black/20 dark:text-white">
+<p class="text-sm font-medium text-white/60">Datos Clave</p>
+<div class="mt-2 flex flex-col gap-2">
+<div>
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">Tamaño</p>
+<p class="text-base text-white/80">27-28 cm</p>
+</div>
+<div>
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">Hábitat</p>
+<p class="text-base text-white/80">Praderas y matorrales abiertos</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col rounded-lg bg-white/10 p-4 backdrop-blur-md dark:bg-black/20 dark:text-white">
+<p class="text-sm font-medium text-white/60">Canto</p>
+<div class="mt-2 flex grow items-center justify-between gap-4">
+<div class="flex h-8 w-20 items-center justify-center gap-1.5 sound-wave">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+<button class="flex size-12 min-w-[48px] cursor-pointer items-center justify-center overflow-hidden rounded-full bg-moss-green text-black transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-3xl text-white">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col rounded-lg bg-white/10 p-4 backdrop-blur-md dark:bg-black/20 dark:text-white">
+<p class="text-sm font-medium text-white/60">Identificación</p>
+<div class="mt-2">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">Plumaje</p>
+<p class="text-base text-white/80">Pecho rojo intenso característico. Dorso y alas de tonos pardos con manchas negras.</p>
+</div>
+</div>
+<div class="flex flex-col rounded-lg bg-white/10 p-4 backdrop-blur-md dark:bg-black/20 dark:text-white">
+<p class="text-sm font-medium text-white/60">Distribución</p>
+<div class="mt-2 flex h-full min-h-24 w-full items-center justify-center">
+<img alt="Un mapa simplificado de Chile mostrando las zonas de distribución del ave." class="h-auto w-20 object-contain invert" data-location="Chile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDre6JsDOPMchBpfsX394WBO-6k0Vx-TzmpH3IuA4RZDFwSCWqvnmJovOCSojghnjsKAiWHsDOQ-yqJ_0hZSwGW5VF-wxk2dDkisV2wStYMO8GZGpYghylMxZOJAMiQpynBt2nKld2vfzH2za8UXMNXj_0_QpylD_xAGgacKiZ0-jrzG4JpE_i1jgjcuJgEOTmBxj-w1IPYH4_1JtcqDviG7Q2NwEsST5qNCrDggUv_1HV-FgSZPHPe_0R-B8HgPBe1GW97WcA4beNw"/>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<div class="absolute bottom-6 right-6 z-40 transition-opacity duration-500 group-focus-within/design-root:opacity-0 group-focus-within/design-root:pointer-events-none">
+<button class="flex h-14 min-w-14 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-full bg-moss-green pl-5 pr-5 text-base font-bold text-white shadow-lg transition-transform hover:scale-105">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Añadir a mi bitácora</span>
+</button>
+</div>
+<div class="absolute inset-0 z-20 opacity-0 group-focus-within/design-root:opacity-100 transition-opacity duration-500 pointer-events-none group-focus-within/design-root:pointer-events-auto flex justify-end items-center" tabindex="0">
+<div class="w-full max-w-lg h-full overflow-y-auto bg-white/80 dark:bg-black/70 backdrop-blur-lg text-black dark:text-white p-10 pt-24">
+<h2 class="text-4xl font-common-name font-medium text-moss-green dark:text-beige-light">Loica</h2>
+<p class="text-2xl font-scientific-name text-black/60 dark:text-white/70 mt-1">Leistes loyca</p>
+<div class="mt-8 space-y-6 text-base">
+<div>
+<h3 class="font-bold text-lg text-moss-green dark:text-beige-light">Tamaño</h3>
+<p>27-28 cm. Es un ave de tamaño mediano, robusta y con una presencia notable en su entorno.</p>
+</div>
+<div>
+<h3 class="font-bold text-lg text-moss-green dark:text-beige-light">Hábitat</h3>
+<p>Prefiere áreas abiertas como praderas, estepas y matorrales bajos. A menudo se le ve en postes de cercas o en el suelo buscando alimento.</p>
+</div>
+<div>
+<h3 class="font-bold text-lg text-moss-green dark:text-beige-light">Tips de Identificación</h3>
+<p>El macho es inconfundible por su pecho de color rojo intenso que contrasta con su plumaje dorsal pardo y estriado. La hembra es de colores más apagados para camuflarse.</p>
+</div>
+<div>
+<h3 class="font-bold text-lg text-moss-green dark:text-beige-light">Distribución en Chile</h3>
+<p>Se encuentra a lo largo de gran parte del país, desde la Región de Atacama hasta Tierra del Fuego, adaptándose a diversos climas y altitudes.</p>
+</div>
+<div class="flex items-center gap-4 pt-4">
+<button class="flex-1 flex items-center justify-center gap-3 py-3 px-6 bg-moss-green text-white font-bold rounded-full hover:scale-105 transition-transform shadow-lg">
+<span class="material-symbols-outlined">play_arrow</span>
+                    Reproducir Canto
+                </button>
+<button class="flex items-center justify-center gap-2 py-3 px-6 bg-moss-green text-white font-bold rounded-full hover:scale-105 transition-transform shadow-lg">
+<span class="material-symbols-outlined">add</span>
+                    Bitácora
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
