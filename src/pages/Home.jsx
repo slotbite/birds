@@ -2,9 +2,11 @@ import React from 'react';
 import HeroSearch from '../components/HeroSearch';
 import BirdGrid from '../components/BirdGrid';
 
+import { APP_CONFIG } from '../config/appConfig';
+
 const Home = () => {
     React.useEffect(() => {
-        document.title = "Aves de Chile - Guía Relajante";
+        document.title = APP_CONFIG.fullName;
     }, []);
 
     return (

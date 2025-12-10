@@ -6,7 +6,7 @@ import Logbook from './pages/Logbook';
 
 function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ave/:id" element={<BirdDetail />} />
