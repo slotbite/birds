@@ -1,6 +1,5 @@
 import React from 'react';
 import useBirdStore from '../store/useBirdStore';
-import { APP_CONFIG } from '../config/appConfig';
 
 const HeroSearch = () => {
     const { searchQuery, setSearchQuery } = useBirdStore();
@@ -8,10 +7,10 @@ const HeroSearch = () => {
     return (
         <div className="w-full py-12 flex flex-col items-center justify-center text-center px-4">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-2 drop-shadow-xl tracking-wide font-sans">
-                {APP_CONFIG.name}
+                Aves de Chile
             </h1>
             <p className="text-white/90 text-xl mb-8 font-light drop-shadow-lg tracking-wide">
-                {APP_CONFIG.subtitle}
+                Guía Relajante
             </p>
 
             <div className="relative group w-full max-w-2xl">

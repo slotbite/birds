@@ -1,7 +1,6 @@
 // App Configuration
 export const APP_CONFIG = {
     name: 'Aves de Chile',
-    subtitle: 'Guía de Avistamientos',
     fullName: 'Aves de Chile - Guía de Avistamientos',
     description: 'Guía interactiva de aves de Chile con registro de avistamientos',
     version: '1.0.0'
