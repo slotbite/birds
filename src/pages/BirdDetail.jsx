@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useBirdAudio } from '../hooks/useBirdAudio';
 import { useBirdDetails } from '../hooks/useBirdDetails';
 import { useImageColors } from '../hooks/useImageColors';
-import { getPreferences, updatePreference } from '../config/appConfig';
+import { getPreferences, updatePreference, APP_CONFIG } from '../config/appConfig';
 import AddSightingModal from '../components/AddSightingModal';
 
 const BirdDetail = () => {
@@ -29,7 +29,7 @@ const BirdDetail = () => {
         const found = birds.find(b => b.uid === id);
         if (found) {
             setBird(found);
-            document.title = `${found.name.spanish} - Aves de Chile`;
+            document.title = `${found.name.spanish} - ${APP_CONFIG.name}`;
         } else {
             // navigate('/'); // Optional: redirect if not found
         }

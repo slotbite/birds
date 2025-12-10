@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useBirdAudio } from '../hooks/useBirdAudio';
@@ -7,7 +7,36 @@ const BirdCard = ({ bird }) => {
     const navigate = useNavigate();
     const [isHovered, setIsHovered] = useState(false);
     const [imageError, setImageError] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState(false);
+    const [isInView, setIsInView] = useState(false);
+    const cardRef = useRef(null);
     const { hasAudio, play, stop } = useBirdAudio(bird);
+
+    // Intersection Observer for better lazy loading
+    useEffect(() => {
+        if (!cardRef.current) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setIsInView(true);
+                        observer.disconnect();
+                    }
+                });
+            },
+            {
+                rootMargin: '50px', // Start loading 50px before the image enters viewport
+                threshold: 0.01
+            }
+        );
+
+        observer.observe(cardRef.current);
+
+        return () => {
+            observer.disconnect();
+        };
+    }, []);
 
     const handleMouseEnter = () => {
         setIsHovered(true);
@@ -25,6 +54,7 @@ const BirdCard = ({ bird }) => {
 
     return (
         <motion.div
+            ref={cardRef}
             className="relative h-[300px] w-full rounded-2xl overflow-hidden cursor-pointer shadow-2xl group bg-gray-800 border border-gray-700"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -36,15 +66,33 @@ const BirdCard = ({ bird }) => {
         >
             {/* Image */}
             <div className="absolute inset-0 w-full h-full overflow-hidden rounded-2xl">
-                {!imageError ? (
+                {/* Placeholder/Blur while loading */}
+                {!imageLoaded && !imageError && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-nature-800 to-nature-900 animate-pulse">
+                        <div className="w-full h-full flex items-center justify-center">
+                            <span className="text-white/30 text-4xl">🐦</span>
+                        </div>
+                    </div>
+                )}
+
+                {/* Actual Image */}
+                {!imageError && isInView && (
                     <img
                         src={bird.images.main}
                         alt={bird.name.spanish}
-                        className={`w-full h-full object-cover transition-transform duration-700 ease-in-out ${isHovered ? 'scale-150' : 'scale-100'}`}
+                        className={`w-full h-full object-cover transition-all duration-700 ease-in-out ${
+                            imageLoaded ? 'opacity-100' : 'opacity-0'
+                        } ${isHovered ? 'scale-150' : 'scale-100'}`}
                         loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
+                        onLoad={() => setImageLoaded(true)}
                         onError={() => setImageError(true)}
                     />
-                ) : (
+                )}
+
+                {/* Error Fallback */}
+                {imageError && (
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-nature-700 to-nature-900">
                         <span className="text-white text-6xl">🐦</span>
                     </div>
