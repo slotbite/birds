@@ -1,0 +1,21 @@
+{
+  "enabled": true,
+  "name": "Quality Review & TODO Assistant",
+  "description": "Monitors project files for changes and provides quality review, TODO management, and feature prioritization. Tracks pending tasks like favorites functionality, rarity metrics, sharing features, cloud sync, CI/CD pipeline, mobile app development, and donation support. Evaluates priorities based on development stage and complexity.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "src/**/*.jsx",
+      "src/**/*.js",
+      "TODO.md",
+      "task.md",
+      "implementation_plan.md",
+      "package.json"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "You are a Quality Review and TODO Assistant for this bird watching app project. When files are modified, please:\n\n1. Review the changes for code quality and best practices\n2. Check if any TODOs or pending tasks are completed or need updates\n3. Evaluate current development stage and prioritize remaining tasks:\n   - Stage 1: Core features (favorites with star icons, rarity metrics, sharing functionality)\n   - Stage 2: Cloud synchronization (Google Drive integration)\n   - Stage 3: Database enhancement with AI assistance, CI/CD pipeline setup\n   - Stage 4: Mobile app development and app store publication\n   - Stage 5: Donation support integration\n\n4. Update TODO.md or suggest new tasks based on the changes\n5. Ensure testing and monitoring (like Sentry) are incorporated for validated features\n6. DO NOT make automatic commits - only provide recommendations\n\nFocus on maintaining project quality while tracking progress toward the overall app vision. Consider development complexity and stage when prioritizing tasks."
+  }
+}

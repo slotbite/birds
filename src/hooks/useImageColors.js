@@ -6,11 +6,14 @@ import { useState, useEffect } from 'react';
  */
 export const useImageColors = (imageUrl) => {
     const [colors, setColors] = useState({
-        dominant: '#2d5016',
-        vibrant: '#4a7c2c',
-        muted: '#3d5f24',
+        dominant: '#1a1a1a',
+        deep: '#0a0a0a',
+        surface: '#18181b',
+        accent: '#ffffff',
+        glow: '#3f3f46',
         text: '#ffffff',
-        textMuted: '#b8d4a8'
+        textMuted: '#9ca3af',
+        isDark: true
     });
     const [isLoading, setIsLoading] = useState(true);
 
@@ -87,32 +90,28 @@ export const useImageColors = (imageUrl) => {
                 // Calculate HSL for color manipulation
                 const { h, s, l } = rgbToHsl(r, g, b);
 
-                // Create pastel version for background (desaturate and lighten)
-                const pastel = hslToRgb(h, Math.min(s * 0.4, 0.5), Math.min(l * 1.8, 0.85));
+                // Create "Luxury Dark" palette
+                // 1. Deep Background: Very dark version of the hue
+                const deep = hslToRgb(h, Math.min(s * 0.5, 0.3), 0.05);
 
-                // Create vibrant version (increase saturation)
-                const vibrant = hslToRgb(h, Math.min(s * 1.2, 0.9), Math.max(l * 0.9, 0.4));
+                // 2. Surface: Slightly lighter/tinted black for cards
+                const surface = hslToRgb(h, Math.min(s * 0.3, 0.2), 0.12);
 
-                // Create muted version
-                const muted = hslToRgb(h, s * 0.6, l * 0.7);
+                // 3. Vibrant Accent: High saturation, mid-lightness for pop
+                const accent = hslToRgb(h, 0.9, 0.6);
 
-                // Calculate complementary color for accents
-                const complementary = hslToRgb((h + 0.5) % 1, Math.min(s * 1.1, 0.8), l);
-
-                // Determine text color based on pastel background luminance
-                const pastelLuminance = (0.299 * pastel[0] + 0.587 * pastel[1] + 0.114 * pastel[2]) / 255;
-                const textColor = pastelLuminance > 0.6 ? '#1a1a1a' : '#ffffff';
-                const textMuted = pastelLuminance > 0.6 ? '#4a4a4a' : '#d0d0d0';
+                // 4. Soft Glow: Pastel version for gradients
+                const glow = hslToRgb(h, 0.8, 0.4);
 
                 setColors({
                     dominant: rgbToHex(r, g, b),
-                    pastel: rgbToHex(...pastel),
-                    vibrant: rgbToHex(...vibrant),
-                    muted: rgbToHex(...muted),
-                    complementary: rgbToHex(...complementary),
-                    text: textColor,
-                    textMuted: textMuted,
-                    isDark: pastelLuminance <= 0.6
+                    deep: rgbToHex(...deep),
+                    surface: rgbToHex(...surface),
+                    accent: rgbToHex(...accent),
+                    glow: rgbToHex(...glow),
+                    text: '#ffffff',
+                    textMuted: '#9ca3af', // gray-400
+                    isDark: true // Force dark mode for luxury feel
                 });
 
                 setIsLoading(false);

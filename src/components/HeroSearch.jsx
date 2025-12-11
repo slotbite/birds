@@ -4,7 +4,7 @@ import useBirdStore from '../store/useBirdStore';
 import { APP_CONFIG } from '../config/appConfig';
 
 const HeroSearch = () => {
-    const { searchQuery, setSearchQuery } = useBirdStore();
+    const { searchQuery, setSearchQuery, showOnlyFavorites, toggleShowOnlyFavorites } = useBirdStore();
     const [isScrolled, setIsScrolled] = useState(false);
     const navigate = useNavigate();
 
@@ -47,10 +47,34 @@ const HeroSearch = () => {
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             placeholder="Buscar ave..."
-                            className={`w-full rounded-full bg-white/90 backdrop-blur-sm text-gray-800 placeholder-gray-500 shadow-2xl focus:outline-none focus:ring-2 focus:ring-nature-400/50 transition-all ${isScrolled ? 'py-3 px-5 text-base' : 'py-4 px-6 text-lg'
+                            className={`w-full rounded-full bg-white/90 backdrop-blur-sm text-gray-800 placeholder-gray-500 shadow-2xl focus:outline-none focus:ring-2 focus:ring-nature-400/50 transition-all ${isScrolled ? 'py-3 px-5 pr-20 text-base' : 'py-4 px-6 pr-24 text-lg'
                                 }`}
                         />
-                        <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
+
+                        {/* Favorites Filter Toggle - Inside search bar */}
+                        <button
+                            onClick={toggleShowOnlyFavorites}
+                            className={`absolute right-12 top-1/2 -translate-y-1/2 p-1.5 rounded-full transition-all duration-200 ${showOnlyFavorites
+                                ? 'text-red-500 bg-red-50 hover:bg-red-100'
+                                : 'text-gray-400 hover:text-red-400 hover:bg-gray-100'
+                                }`}
+                            title={showOnlyFavorites ? "Mostrar todas las aves" : "Mostrar solo favoritos"}
+                        >
+                            {showOnlyFavorites ? (
+                                // Filled heart
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                                </svg>
+                            ) : (
+                                // Outline heart
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                            )}
+                        </button>
+
+                        {/* Search Icon */}
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
