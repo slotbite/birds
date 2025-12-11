@@ -13,5 +13,8 @@ export default defineConfig({
         secure: false,
       }
     }
+  },
+  build: {
+    minify: 'esbuild', // Usa esbuild en lugar de terser (más rápido y sin dependencias)
   }
 })

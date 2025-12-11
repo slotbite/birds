@@ -1,0 +1,58 @@
+name: Build and Publish Obfuscated Code
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build with obfuscation
+        run: npm run build
+
+      - name: Upload artifact to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Create release with obfuscated code
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Release v${{ github.run_number }} (Obfuscated)
+          body: |
+            Automated release with obfuscated code.
+            
+            Build date: ${{ github.event.head_commit.timestamp }}
+            Commit: ${{ github.event.head_commit.message }}
+            
+            ⚠️ This is the obfuscated production build.
+            Source code is available in the private repository.
+          draft: false
+          prerelease: false
